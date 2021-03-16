@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@model List<Car>
+
+<div class="row">
+    @foreach (var car in Model)
+    {
+            <div class="col-lg-6">
+                <div class="thumbnail">
+                    <img src="@car.ImageThumbnailUrl" class="img-responsive" style="height:250px;" />
+                    <div class="caption">
+                        <h3>
+                            <a href="/car/details/@car.CarId">
+                                @car.Name
+                            </a>
+                        </h3>
+                        <p>@car.ShortDescription</p>
+                    </div>
+                </div>
+            </div>
+    }
+</div>

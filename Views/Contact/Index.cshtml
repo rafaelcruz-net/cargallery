@@ -1,0 +1,81 @@
+@model Contact
+
+@section Scripts
+{
+ <script>
+     $(document).ready(function () {
+         $("#form").submit(function (event) {
+             event.preventDefault();
+             let result = $("#form").valid();
+
+             if (result == false)
+                 return;
+
+             let request = {
+                 Name: $("#Name").val(),
+                 Email: $("#Email").val(),
+                 Message: $("#Message").val(),
+             }
+
+             $.ajax({
+                 url: "https://localhost:5001/Contact",
+                 method: "POST",
+                 dataType: "json",
+                 contentType: "application/json",
+                 data: JSON.stringify(request),
+                 success: function (r) {
+                     if (r.message == "Ok") {
+                         $(".alert-success").show();
+                         setTimeout(function () {
+                             $(".alert-success").hide("slow");
+                         }, 2000)
+                     }
+                 }
+                 
+
+             })
+         });
+     })         
+ </script>
+}
+
+
+<h3>
+    Quer entrar em contato? Nos envie uma mensagem!
+</h3>
+
+<form asp-action="Index" method="post" class="form-horizontal" role="form" novalidate id="form">
+    <div class="alert alert-success"style="display:none;" >
+        Mensagem Enviada com sucesso!
+    </div>
+    
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">Nome Completo</label>
+        <div class="col-md-5">
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Email</label>
+        <div class="col-md-5">
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">Mensagem</label>
+        <div class="col-md-5">
+            <textarea asp-for="Message" class="form-control"></textarea>
+            <span asp-validation-for="Message" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Enviar Mensagem!" />
+        </div>
+    </div>
+</form>
