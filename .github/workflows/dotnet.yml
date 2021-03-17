@@ -25,6 +25,15 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: Publish
       run: dotnet publish -c Release -o publish -r linux-x64
+    - name: Stop systemd dotnet service
+      uses: appleboy/ssh-action@master
+      env:
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.KEY }}
+        PASSPHRASE: ${{ secrets.PASSPHRASE }}
+        script: sudo systemctl stop cargallery.service
     - name: Deploy to Linux
       uses: appleboy/scp-action@master
       env: 
@@ -38,4 +47,13 @@ jobs:
         source: "publish/*"
         target: "~/dotnet"
         strip_components: 1
+    - name: Start systemd dotnet service
+      uses: appleboy/ssh-action@master
+      env:
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.KEY }}
+        PASSPHRASE: ${{ secrets.PASSPHRASE }}
+        script: sudo systemctl start cargallery.service
       
