@@ -43,7 +43,7 @@ namespace SeleniumAutomation.PageObjects
         public void Close() 
         {
             this.Driver.Quit();
-            this.WebHost.host.StopAsync().Wait();
+            this.WebHost.host.StopAsync();
             
         }
 
