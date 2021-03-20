@@ -35,7 +35,7 @@ namespace Selenium
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>()
-                              .UseContentRoot("../../../../")
+                              .UseContentRoot("/home/runner/work/cargallery/cargallery")
                               .UseUrls(URL);
                 });
     }
