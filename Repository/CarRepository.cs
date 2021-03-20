@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CarGallery.Models;
@@ -19,7 +20,7 @@ namespace CarGallery.Repository
             return this._appDbContext.Cars.ToList();
         }
 
-        public Car GetCarById(int carId)
+        public Car GetCarById(Guid carId)
         {
             return _appDbContext.Cars.FirstOrDefault(p => p.CarId == carId);
         }

@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30615.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarGallery", "CarGallery.csproj", "{29CF802D-24FA-437B-8C02-F230FA6CED7C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8CEA9722-9EC4-492F-AB22-09C6882FDF30}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium", "Tests\Selenium.csproj", "{DA2C7218-3114-46FA-836F-B1755B57217D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{29CF802D-24FA-437B-8C02-F230FA6CED7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29CF802D-24FA-437B-8C02-F230FA6CED7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29CF802D-24FA-437B-8C02-F230FA6CED7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA2C7218-3114-46FA-836F-B1755B57217D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA2C7218-3114-46FA-836F-B1755B57217D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA2C7218-3114-46FA-836F-B1755B57217D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA2C7218-3114-46FA-836F-B1755B57217D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DA2C7218-3114-46FA-836F-B1755B57217D} = {8CEA9722-9EC4-492F-AB22-09C6882FDF30}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6FFE51F9-44FD-4C03-B776-0BC4A9139B49}

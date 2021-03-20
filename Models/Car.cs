@@ -1,8 +1,10 @@
+using System;
+
 namespace CarGallery.Models
 {
     public class Car
     {
-        public int CarId { get; set; }
+        public Guid CarId { get; set; }
         public string Name { get; set; }
         public string ShortDescription { get; set; }
         public string LongDescription { get; set; }

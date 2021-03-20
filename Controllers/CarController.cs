@@ -38,7 +38,7 @@ namespace CarGallery.Controllers
         }
 
         [Route("car/details/{id}")]
-        public IActionResult Details(int id)
+        public IActionResult Details(Guid id)
         {
             var car = this._carRepository.GetCarById(id);
             
